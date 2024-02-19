@@ -1,0 +1,28 @@
+<button (click)="fetchdata()">fetch data</button>
+
+<table style="border-collapse: collapse; width: 100%; border: 2px solid black;">
+  <thead>
+    <tr>
+      <div class="row">
+        <div class="col-1  p-2 d-flex justify-content-center " style="border: 1px  solid black;"><th  >ID</th></div>
+
+      <div class="col-5 p-2 d-flex justify-content-center" style="border: 1px  solid black;"><th  >Title</th></div>
+     <div class="col-2 p-2 d-flex justify-content-center" style="border: 1px  solid black;"> <th  >Price</th></div>
+     <div class="col-4 p-2 d-flex justify-content-center " style="border: 1px  solid black;"><th>Image</th></div>
+      </div>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of data1">
+      <div class="row">
+        <div class="col-1 pt-5 d-flex justify-content-center " style="border: 1px  solid black;" > <td class >{{item.id}}</td></div>
+      <div class="col-5 pt-5 d-flex justify-content-center" style="border: 1px  solid black;"><td  >{{item.title}}</td></div>
+      <div class="col-2 pt-5 d-flex justify-content-center" style="border: 1px  solid black;"><td >{{item.price}}</td></div>
+<div class="col-4 p-2 d-flex justify-content-center " style="border: 1px  solid black;"><td  > <img [src]="item.image" alt="Product Image" style="width: 100px ; height: 100px;" class="img-fluid rounded-5"></td></div>
+
+    </div>
+    </tr>
+  </tbody>
+</table>
+
+

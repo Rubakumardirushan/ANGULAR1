@@ -1,0 +1,26 @@
+<div class="dropdown">
+  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Dropdown link
+  </a>
+
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="#" (click)="onclick('Action')">Action</a></li>
+    <li><a class="dropdown-item" href="#" (click)="onclick('Another action')">Another action</a></li>
+    <li><a class="dropdown-item" href="#" (click)="onclick('Something else here')">Something else here</a></li>
+  </ul>
+</div>
+
+<div>
+  <select name="colors" id="colors" (change)="onselect($event)">
+    <option value="red">RED</option>
+    <option value="green">GREEN</option>
+    <option value="yellow">yellow</option>
+  </select>
+</div>
+
+<div>
+  <select name="subject" id="subject" [formControl]="subjectcontrol">
+    <option value="science">science</option>
+<option value="maths">maths</option>
+<option value="history">history </option> </select>
+</div>

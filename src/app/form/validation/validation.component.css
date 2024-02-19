@@ -1,0 +1,14 @@
+*{
+  font-family: Georgia, serif;
+}
+.contianer{
+  width: 800px;
+
+}
+.m-5 {
+  margin-left: 19rem !important;
+}
+.gradient-bg {
+  background: linear-gradient(to right,rgb(200, 0, 100)  , rgb(0, 0, 90));
+  border-radius: 125px 25px 25px 105px;
+}
