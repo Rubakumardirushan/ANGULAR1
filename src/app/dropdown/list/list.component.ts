@@ -1,7 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { ReactiveFormsModule ,FormControl} from '@angular/forms';
-
+import { Customer } from '../../Data/modles/customer';
+import { ServicesService } from '../../customerservice/services.service';
+import { OnInit } from '@angular/core';
 @Component({
   selector: 'app-list',
   standalone: true,
@@ -9,7 +11,7 @@ import { ReactiveFormsModule ,FormControl} from '@angular/forms';
   templateUrl: './list.component.html',
   styleUrl: './list.component.css'
 })
-export class ListComponent {
+export class ListComponent implements OnInit{
   subjectcontrol=new FormControl('');
 
 onclick(value:string){
@@ -18,9 +20,13 @@ onclick(value:string){
 onselect(event:Event){
   console.log((event.target as HTMLSelectElement).value);
 }
-constructor() {
+constructor(private customerservice: ServicesService) {
   this.subjectcontrol.valueChanges.subscribe((value)=>{
     console.log(value);
   });
  }
+ dropdownlist: Customer[] = [];
+  ngOnInit(): void {
+this.dropdownlist = this.customerservice.getcustomer();
+  }
 }

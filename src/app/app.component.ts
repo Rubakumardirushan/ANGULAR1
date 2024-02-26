@@ -11,7 +11,10 @@ import { DashbordComponent } from './google/dashbord/dashbord.component';
 import { SignupComponent } from './google/signup/signup.component';
 import { PipesComponent } from './jvl/pipes/pipes.component';
 import { CommonModule } from '@angular/common';
-
+import { FormsModule } from '@angular/forms';
+import { SharingComponent } from './Data/sharing/sharing.component';
+import { ViewComponent } from './Data/view/view.component';
+import { Customer } from './Data/modles/customer';
 
 
 
@@ -19,10 +22,12 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,CommonModule,HeadComponent,ValidationComponent,ListComponent,GetdataComponent,PipesComponent,JvlcodeComponent,LayoutComponent,ErrorComponent,DashbordComponent,SignupComponent],
+  imports: [RouterOutlet,CommonModule,SharingComponent,ViewComponent,FormsModule,HeadComponent,ValidationComponent,ListComponent,GetdataComponent,PipesComponent,JvlcodeComponent,LayoutComponent,ErrorComponent,DashbordComponent,SignupComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
+
   title = 'bootstrap';
+
 }

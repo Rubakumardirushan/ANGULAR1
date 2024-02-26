@@ -2,7 +2,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { UserService } from '../../service/user.service';
+
+import { jwtDecode } from 'jwt-decode';
 @Component({
   selector: 'app-signup',
   standalone: true,
@@ -11,11 +12,17 @@ import { UserService } from '../../service/user.service';
   styleUrl: './signup.component.css'
 })
 export class SignupComponent implements OnInit {
-constructor(private http: HttpClient ,private router:Router,private userService: UserService) {}
+
+constructor(private http: HttpClient ,private router:Router) {}
+username: string = '';
 ngOnInit() {
+  const Token:any=localStorage.getItem('angular17token');
+  const decodedToken:any = jwtDecode(Token);
+  console.log(decodedToken.user);
+ this.username=decodedToken.user;
 
 }
-username:string=this.userService.userData;
+
 getusers(){
   return this.http.get('https://fakestoreapi.com/products')
 }

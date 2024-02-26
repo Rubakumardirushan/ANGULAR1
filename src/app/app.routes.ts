@@ -7,20 +7,12 @@ import { ErrorComponent } from './google/error/error.component';
 import { SignupComponent } from './google/signup/signup.component';
 import { ValidationComponent } from './form/validation/validation.component';
 export const routes: Routes = [
+  // Redirect to login page by default
 
-  {
-    path: '', redirectTo:'login' , pathMatch:'full'
-},
-{
-    path:'login',
-    component:ValidationComponent
-},{
-
-  path:'signup',component:SignupComponent,
-  canActivate: [authGuard]
-},
-
-
-
-
+  // Login route
+  { path: 'login', component: ValidationComponent , },
+  // Signup route guarded by AuthGuard
+  { path: 'signup', component: SignupComponent, canActivate: [authGuard] },
+  // Wildcard route - Redirect to signup page for any other invalid route
+  { path: '**', redirectTo: 'signup' }
 ];

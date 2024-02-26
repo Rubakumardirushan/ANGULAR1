@@ -1,13 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { AbstractControl, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Route, RouterOutlet } from '@angular/router';
 import { FormControl,FormGroup } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { authGuard } from '../../service/auth.guard';
 import { jwtDecode } from 'jwt-decode';
-import { UserService } from '../../service/user.service';
+
+import { OnInit } from '@angular/core';
 @Component({
   selector: 'app-validation',
   standalone: true,
@@ -16,7 +17,7 @@ import { UserService } from '../../service/user.service';
   styleUrl: './validation.component.css'
 })
 export class ValidationComponent {
-constructor(private http: HttpClient ,private router: Router,private userService: UserService) { }
+constructor(private http: HttpClient ,private router: Router,private fb:FormBuilder) { }
 
 credentials = {
   username: '',
@@ -38,8 +39,8 @@ login() {
 
         const decodedToken:any = jwtDecode(token);
         console.log(decodedToken);
-        alert(decodedToken.user);
-        this.userService.userData = decodedToken.user;
+        alert(authGuard);
+
 
         this.router.navigate(['/signup']);
       },
@@ -47,7 +48,7 @@ login() {
       // Show error message on failure
       err => {
 
-        window.alert(!(authGuard));
+        window.alert((authGuard));
       }
     );
 }
